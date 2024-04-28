@@ -7,10 +7,13 @@ public class WaveSpawnerScript : MonoBehaviour
     public GameObject wave;
     public float spawnRate = 7;
     private float timer = 0;
-    public float heightOffset = 0.6f;
+    public float heightOffset = 0.5f;
+    private LogicScript logicScript;
+    private bool spawnRateDecreased = false;
     void Start()
     {
         spawnWave();
+        logicScript = LogicScript.instance;
     }
 
     // Update is called once per frame
@@ -21,6 +24,15 @@ public class WaveSpawnerScript : MonoBehaviour
         }else{
             spawnWave();
             timer = 0;
+        }
+
+        if (logicScript.playerScore % 5 == 0 && !spawnRateDecreased && spawnRate > 2){
+            spawnRate -= 1f;
+            spawnRateDecreased = true;
+        }
+
+        if (logicScript.playerScore % 5 != 0){
+            spawnRateDecreased = false;
         }
     }
 

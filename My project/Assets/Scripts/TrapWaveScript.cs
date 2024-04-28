@@ -6,10 +6,6 @@ public class TrapWaveScript : MonoBehaviour
 {
     public float moveSpeed = 0.01f;
     public float deadZone = -3.8f;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

@@ -9,7 +9,7 @@ public class DamageScript : MonoBehaviour
         if(collision.transform.CompareTag("Player")){
             //Debug.Log("Player Damaged");
             Destroy(collision.gameObject);
+            LogicScript.instance.ShowGameOver();
         }
     }
-
 }
