@@ -8,7 +8,9 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOver;
+    public GameObject pauseButton;
     public static LogicScript instance;
+
 
     void Start(){
         instance = this;
@@ -16,6 +18,7 @@ public class LogicScript : MonoBehaviour
 
     public void ShowGameOver(){
         gameOver.SetActive(true);
+        pauseButton.SetActive(false);
     }
 
     public void RestartGame(){

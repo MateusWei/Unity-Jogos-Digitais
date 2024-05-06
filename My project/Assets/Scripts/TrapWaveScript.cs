@@ -10,10 +10,16 @@ public class TrapWaveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + (Vector3.left * moveSpeed);
-        
-        if(transform.position.x < deadZone){
-            Destroy(gameObject);
+        if (!IsGamePaused()){
+            transform.position = transform.position + (Vector3.left * moveSpeed);
+            
+            if(transform.position.x < deadZone){
+                Destroy(gameObject);
+            }
         }
+    }
+
+    bool IsGamePaused(){
+        return Time.timeScale == 0f;
     }
 }

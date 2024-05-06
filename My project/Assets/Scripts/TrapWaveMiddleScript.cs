@@ -13,7 +13,7 @@ public class TrapWaveMiddleScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         //Debug.Log("incremento");
-        if(collision.transform.CompareTag("Player")){
+        if(collision.transform.CompareTag("Player") || collision.transform.CompareTag("PlayerDefense")){
             logic.addScore();
         }
     }
